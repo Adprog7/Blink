@@ -53,6 +53,7 @@ h1 {
 
 #spinButton {
     background-color: #F72585; /* Magenta */
+    color: rgb(255, 255, 255);
     padding: 15px 30px;
     font-size: 1.3em;
     border: none;
