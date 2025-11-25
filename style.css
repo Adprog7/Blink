@@ -20,7 +20,7 @@ h1 {
 
 .wheel-container {
     position: relative;
-    /* TAILLE RESPONSIVE : 80% de la largeur de l'écran, max 550px */
+    /* TAILLE RESPONSIVE : 80vw, max 550px */
     width: 80vw; 
     height: 80vw; 
     max-width: 550px; /* Taille maximale finale */
@@ -53,7 +53,7 @@ h1 {
 
 #spinButton {
     background-color: #F72585; /* Magenta */
-    color: rgb(255, 255, 255);
+    color: white; /* Corrigé */
     padding: 15px 30px;
     font-size: 1.3em;
     border: none;
