@@ -14,18 +14,18 @@ body {
 
 h1 {
     color: #4CC9F0; /* Cyan */
-    margin-bottom: 0px;
+    margin-bottom: 0px; /* Réduit la marge pour remonter la roue */
     text-shadow: 0 0 5px rgba(76, 201, 240, 0.7); 
 }
 
 .wheel-container {
     position: relative;
-    /* TAILLE RÉDUITE : 80vw, max 550px */
+    /* TAILLE RESPONSIVE : 80% de la largeur de l'écran, max 550px */
     width: 80vw; 
     height: 80vw; 
-    max-width: 550px; /* Taille maximale réduite à 550px */
+    max-width: 550px; /* Taille maximale finale */
     max-height: 550px; 
-    margin: 20px auto;
+    margin: 20px auto; /* Marge réduite */
     border-radius: 50%;
     box-shadow: 0 0 30px #7209B7, 0 0 10px #4CC9F0; /* Effet de lumière */
     overflow: hidden; 
@@ -47,7 +47,7 @@ h1 {
     height: 0;
     border-left: 25px solid transparent; 
     border-right: 25px solid transparent;
-    border-bottom: 35px solid white; /* Flèche Magenta */
+    border-bottom: 35px solid #F72585; /* Flèche Magenta */
     z-index: 10;
 }
 

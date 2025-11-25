@@ -1,3 +1,5 @@
+// Début de script.js
+
 const canvas = document.getElementById('roueCanvas');
 const ctx = canvas.getContext('2d');
 const spinButton = document.getElementById('spinButton');
@@ -61,8 +63,8 @@ function drawWheel() {
         ctx.textAlign = 'center'; 
         ctx.fillStyle = '#fff';
         
-        // Taille de police min. pour lisibilité : 0.025
-        ctx.font = 'bold ' + (size * 0.021) + 'px Arial'; 
+        // La police est proportionnelle à la taille (0.025)
+        ctx.font = 'bold ' + (size * 0.025) + 'px Arial'; 
         
         const lines = gages[i].text.split('\n');
         let startY = 0 - (lines.length * line_height / 2) + (line_height / 2); 
@@ -79,7 +81,6 @@ function spinWheel() {
     if (isSpinning) return;
     isSpinning = true;
     spinButton.disabled = true;
-    // English Translation
     resultatDiv.textContent = "The wheel is spinning..."; 
 
     const randomGageIndex = Math.floor(Math.random() * numGages);
@@ -101,7 +102,6 @@ function spinWheel() {
         spinButton.disabled = false;
         
         const winningGage = gages[randomGageIndex];
-        // English Translation + HTML Formatting
         resultatDiv.innerHTML = `Bravo. It landed on you.<br>Your dare is: <strong>${winningGage.text.replace(/\n/g, ' ')}</strong> 😬`;
 
         canvas.style.transition = 'none';
@@ -112,3 +112,9 @@ function spinWheel() {
 
     }, 5000); 
 }
+
+// --- INITIALISATION RESPONSIVE ---
+// CES LIGNES GARANTISSENT QUE LA ROUE SE DESSINE AU DÉPART ET AU REDIMENSIONNEMENT
+window.addEventListener('load', resizeCanvas); 
+window.addEventListener('resize', resizeCanvas); 
+spinButton.addEventListener('click', spinWheel);

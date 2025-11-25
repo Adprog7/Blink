@@ -1,0 +1,12 @@
+# Fichiers et dossiers généraux à ignorer
+node_modules/
+.DS_Store
+Thumbs.db
+npm-debug.log
+
+# Fichiers et dossiers de VS Code
+.vscode/
+
+# Fichiers de cache des systèmes d'exploitation (Windows, macOS)
+*.swp
+*~
