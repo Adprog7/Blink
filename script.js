@@ -64,7 +64,7 @@ function drawWheel() {
         ctx.fillStyle = '#fff';
         
         // La police est proportionnelle à la taille (0.025)
-        ctx.font = 'bold ' + (size * 0.022) + 'px Arial'; 
+        ctx.font = 'bold ' + (size * 0.020) + 'px Arial'; 
         
         const lines = gages[i].text.split('\n');
         let startY = 0 - (lines.length * line_height / 2) + (line_height / 2); 
