@@ -1,4 +1,4 @@
-// Début de script.js
+// DANS script.js
 
 const canvas = document.getElementById('roueCanvas');
 const ctx = canvas.getContext('2d');
@@ -6,16 +6,15 @@ const spinButton = document.getElementById('spinButton');
 const resultatDiv = document.getElementById('resultat');
 
 // --- DARES (ENGLISH FINAL VERSION) ---
-// DANS script.js : Tableau des gages
 const gages = [
     { text: "Post Comic Sans story\n& justify crime", color: "#FF6347" }, 
-    { text: "Change profile pic:\nlogo distorted (Aspect Ratio)", color: "#6A5ACD" }, 
-    { text: "Read 5 lines without breath\n(Leading critique)", color: "#3A0CA3" }, 
+    { text: "Change profile pic to a\ndistorted logo (Aspect Ratio)", color: "#6A5ACD" }, 
+    { text: "Read 5 lines without breathing\n(Leading critique)", color: "#3A0CA3" }, 
     { text: "Shout 'Help! Contrast!'\n(WCAG Rule)", color: "#4361EE" }, 
     { text: "Walk like a robot\n& explain the grid", color: "#4CC9F0" }, 
     { text: "3 aggressive accessories\n: explain color limit", color: "#F72585" }, 
-    { text: "Kerning error to boss/prof\n+ whisper 'The crime is perfect.'", color: "#7209B7" }, // Raccourci
-    { text: "Do an ultra-cliché pose\nand critique the design", color: "#3A0CA3" }, 
+    { text: "Kerning error message to \nboss/prof\n+ whisper 'The crime is \nperfect.'", color: "#7209B7" }, 
+    { text: "Do an ultra-cliched pose\nand critique the design", color: "#3A0CA3" }, 
 ];
 // ---------------------------------------------------
 
@@ -32,14 +31,11 @@ function resizeCanvas() {
     drawWheel(); 
 }
 
-// DANS script.js
-
-// --- FONCTION POUR DESSINER LA ROUE (AJUSTÉE POUR UN MEILLEUR RENDU MOBILE) ---
 function drawWheel() {
-    const size = canvas.width; 
-    const radius = size / 2; 
-    // Nouvel espacement vertical : légèrement réduit pour éviter le débordement vertical
-    const line_height = size * 0.025; 
+    const size = canvas.width; // Taille dynamique
+    const radius = size / 2; // Rayon dynamique
+    // Ajustement de la hauteur de ligne pour compenser la taille de la police
+    const line_height = size * 0.035; 
 
     ctx.clearRect(0, 0, size, size); 
     ctx.strokeStyle = '#fff';
@@ -68,20 +64,15 @@ function drawWheel() {
         ctx.textAlign = 'center'; 
         ctx.fillStyle = '#fff';
         
-        // Taille de police légèrement augmentée à 0.030 pour plus d'impact
+        // Taille de police AUGMENTÉE pour garantir la lisibilité sur mobile
         ctx.font = 'bold ' + (size * 0.030) + 'px Arial'; 
         
         const lines = gages[i].text.split('\n');
-        
-        // Point de départ X (décalage du texte du centre de la roue). Augmenté de 0.70 à 0.65 pour le centrage
-        const textRadiusFactor = 0.65; 
-
-        // Calcule le point de départ vertical pour centrer les lignes
         let startY = 0 - (lines.length * line_height / 2) + (line_height / 2); 
 
         for (let j = 0; j < lines.length; j++) {
-            // Dessine la ligne, utilisant textRadiusFactor pour placer le texte plus vers l'intérieur
-            ctx.fillText(lines[j], radius * textRadiusFactor, startY + (j * line_height));
+            // Utilisation d'un facteur 0.70 pour centrer le texte dans le segment
+            ctx.fillText(lines[j], radius * 0.70, startY + (j * line_height));
         }
         
         ctx.restore();
@@ -125,7 +116,6 @@ function spinWheel() {
 }
 
 // --- INITIALISATION RESPONSIVE ---
-// CES LIGNES GARANTISSENT QUE LA ROUE SE DESSINE AU DÉPART ET AU REDIMENSIONNEMENT
 window.addEventListener('load', resizeCanvas); 
 window.addEventListener('resize', resizeCanvas); 
 spinButton.addEventListener('click', spinWheel);
