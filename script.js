@@ -31,10 +31,14 @@ function resizeCanvas() {
     drawWheel(); 
 }
 
+// DANS script.js
+
+// --- FONCTION POUR DESSINER LA ROUE (AJUSTÉE POUR UN MEILLEUR RENDU MOBILE) ---
 function drawWheel() {
-    const size = canvas.width;
-    const radius = size / 2;
-    const line_height = size * 0.03; 
+    const size = canvas.width; 
+    const radius = size / 2; 
+    // Nouvel espacement vertical : légèrement réduit pour éviter le débordement vertical
+    const line_height = size * 0.025; 
 
     ctx.clearRect(0, 0, size, size); 
     ctx.strokeStyle = '#fff';
@@ -63,14 +67,20 @@ function drawWheel() {
         ctx.textAlign = 'center'; 
         ctx.fillStyle = '#fff';
         
-        // La police est proportionnelle à la taille (0.025)
-        ctx.font = 'bold ' + (size * 0.020) + 'px Arial'; 
+        // Taille de police légèrement augmentée à 0.030 pour plus d'impact
+        ctx.font = 'bold ' + (size * 0.030) + 'px Arial'; 
         
         const lines = gages[i].text.split('\n');
+        
+        // Point de départ X (décalage du texte du centre de la roue). Augmenté de 0.70 à 0.65 pour le centrage
+        const textRadiusFactor = 0.65; 
+
+        // Calcule le point de départ vertical pour centrer les lignes
         let startY = 0 - (lines.length * line_height / 2) + (line_height / 2); 
 
         for (let j = 0; j < lines.length; j++) {
-            ctx.fillText(lines[j], radius * 0.70, startY + (j * line_height));
+            // Dessine la ligne, utilisant textRadiusFactor pour placer le texte plus vers l'intérieur
+            ctx.fillText(lines[j], radius * textRadiusFactor, startY + (j * line_height));
         }
         
         ctx.restore();
