@@ -31,13 +31,10 @@ function resizeCanvas() {
     drawWheel(); 
 }
 
-// DANS script.js
-
 function drawWheel() {
     const size = canvas.width;
     const radius = size / 2;
-    // L'espacement vertical (line_height) doit être un peu plus petit que la taille de la police
-    const line_height = size * 0.030; 
+    const line_height = size * 0.03; 
 
     ctx.clearRect(0, 0, size, size); 
     ctx.strokeStyle = '#fff';
@@ -48,7 +45,6 @@ function drawWheel() {
     for (let i = 0; i < numGages; i++) {
         const angle = angleRotation + i * arc + startAngleOffset;
         
-        // Dessin du segment (Inchangé)
         ctx.beginPath();
         ctx.arc(radius, radius, radius, angle, angle + arc); 
         ctx.lineTo(radius, radius);
@@ -58,41 +54,28 @@ function drawWheel() {
         ctx.fill();
         ctx.stroke();
 
-        // --- NOUVELLE PRÉSENTATION RADIALE ---
         ctx.save();
         ctx.translate(radius, radius); 
         
-        // 1. Rotation pour centrer le segment (et orienter l'axe de lecture)
-        const segmentCenterAngle = angle + arc / 2;
-        ctx.rotate(segmentCenterAngle);
+        const textAngle = angle + arc / 2;
+        ctx.rotate(textAngle);
         
-        // 2. Annuler la rotation de 90 degrés pour que le texte soit LU HORIZONTALEMENT 
-        //    (aligné avec le rayon, de l'intérieur vers l'extérieur).
-        ctx.rotate(Math.PI / 2); 
-
-        // Règle de style
-        ctx.textAlign = 'center'; // Centré par rapport à l'axe vertical du segment
+        ctx.textAlign = 'center'; 
         ctx.fillStyle = '#fff';
-        ctx.font = 'bold ' + (size * 0.025) + 'px Arial'; 
         
-        // Préparation multi-lignes
+        // La police est proportionnelle à la taille (0.025)
+        ctx.font = 'bold ' + (size * 0.020) + 'px Arial'; 
+        
         const lines = gages[i].text.split('\n');
-        
-        // Point de départ X (décalage du texte du centre de la roue)
-        const startX = radius * 0.35; // Commence à 35% du rayon du centre
-        
-        // Point de départ Y (pour centrer verticalement le bloc de texte)
-        let startY = 0 - (lines.length * line_height / 2); 
+        let startY = 0 - (lines.length * line_height / 2) + (line_height / 2); 
 
         for (let j = 0; j < lines.length; j++) {
-            // Dessine chaque ligne horizontalement le long du rayon
-            ctx.fillText(lines[j], startX + radius * 0.25, startY + (j * line_height)); 
+            ctx.fillText(lines[j], radius * 0.70, startY + (j * line_height));
         }
         
         ctx.restore();
     }
 }
-// ... (le reste du code JS reste le même) ...
 
 function spinWheel() {
     if (isSpinning) return;
