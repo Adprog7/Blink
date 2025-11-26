@@ -6,15 +6,16 @@ const spinButton = document.getElementById('spinButton');
 const resultatDiv = document.getElementById('resultat');
 
 // --- DARES (ENGLISH FINAL VERSION) ---
+// DANS script.js : Tableau des gages
 const gages = [
-    { text: "Post Comic Sans story\n& justify the crime", color: "#FF6347" }, 
-    { text: "Change profile pic to a\ndistorted logo (Aspect Ratio)", color: "#6A5ACD" }, 
-    { text: "Read 5 lines without breathing\n(Leading critique)", color: "#3A0CA3" }, 
+    { text: "Post Comic Sans story\n& justify crime", color: "#FF6347" }, 
+    { text: "Change profile pic:\nlogo distorted (Aspect Ratio)", color: "#6A5ACD" }, 
+    { text: "Read 5 lines without breath\n(Leading critique)", color: "#3A0CA3" }, 
     { text: "Shout 'Help! Contrast!'\n(WCAG Rule)", color: "#4361EE" }, 
     { text: "Walk like a robot\n& explain the grid", color: "#4CC9F0" }, 
     { text: "3 aggressive accessories\n: explain color limit", color: "#F72585" }, 
-    { text: "Kerning error message to \nboss/prof\n+ whisper 'The crime is \nperfect.'", color: "#7209B7" }, 
-    { text: "Do an ultra-cliched pose\nand critique the design", color: "#3A0CA3" }, 
+    { text: "Kerning error to boss/prof\n+ whisper 'The crime is perfect.'", color: "#7209B7" }, // Raccourci
+    { text: "Do an ultra-cliché pose\nand critique the design", color: "#3A0CA3" }, 
 ];
 // ---------------------------------------------------
 
