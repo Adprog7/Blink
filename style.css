@@ -86,3 +86,9 @@ h1 {
     box-shadow: 0 2px 8px rgba(67, 97, 238, 0.5);
     min-height: 50px; 
 }
+@media screen and (max-width: 600px) {
+    body {
+        /* Augmente la taille de la police de base pour améliorer la lisibilité générale sur mobile */
+        font-size: 1.11em; /* Environ 20px */
+    }
+}
