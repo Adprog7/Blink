@@ -1,20 +1,19 @@
-// DANS script.js
-
 const canvas = document.getElementById('roueCanvas');
 const ctx = canvas.getContext('2d');
 const spinButton = document.getElementById('spinButton');
 const resultatDiv = document.getElementById('resultat');
 
-// --- DARES (ENGLISH FINAL VERSION) ---
+// --- GAGES FINALISÉS (AVEC NUMÉROS ET TEXTES LONGS STOCKÉS) ---
 const gages = [
-    { text: "Post Comic Sans story\n& justify crime", color: "#FF6347" }, 
-    { text: "Change profile pic to a\ndistorted logo (Aspect Ratio)", color: "#6A5ACD" }, 
-    { text: "Read 5 lines without breathing\n(Leading critique)", color: "#3A0CA3" }, 
-    { text: "Shout 'Help! Contrast!'\n(WCAG Rule)", color: "#4361EE" }, 
-    { text: "Walk like a robot\n& explain the grid", color: "#4CC9F0" }, 
-    { text: "3 aggressive accessories\n: explain color limit", color: "#F72585" }, 
-    { text: "Kerning error message to \nboss/prof\n+ whisper 'The crime is \nperfect.'", color: "#7209B7" }, 
-    { text: "Do an ultra-cliched pose\nand critique the design", color: "#3A0CA3" }, 
+    // Note : Le champ 'id' est le numéro affiché sur la roue.
+    { id: 1, text: "Critique la page d'accueil d'un concurrent\nen parlant comme un commentateur sportif", color: "#FF6347" }, 
+    { id: 2, text: "Nomme 5 polices Serif et 5 Sans-serif en -20s\nou paie la tournée", color: "#6A5ACD" }, 
+    { id: 3, text: "Envoie un message avec une faute de Kerning\nintentionnelle (Boss/Prof)", color: "#3A0CA3" }, 
+    { id: 4, text: "Explique les 3 règles WCAG Contraste\nen faisant un Plank (gainage)", color: "#4361EE" }, 
+    { id: 5, text: "Explique pourquoi déformer un logo\nest un crime (Aspect Ratio)", color: "#4CC9F0" }, 
+    { id: 6, text: "Esquisse un wireframe en 1 min\nen justifiant l'espace négatif", color: "#F72585" }, 
+    { id: 7, text: "Vends un objet en utilisant\nl'émotion des couleurs et la typo", color: "#7209B7" }, 
+    { id: 8, text: "Mets 3 accessoires agressifs :\nexplique la limite de couleurs", color: "#3A0CA3" }, 
 ];
 // ---------------------------------------------------
 
@@ -31,11 +30,12 @@ function resizeCanvas() {
     drawWheel(); 
 }
 
+// --- Fonction pour dessiner la roue (AFFICHAGE NUMÉROTÉ) ---
 function drawWheel() {
-    const size = canvas.width; // Taille dynamique
-    const radius = size / 2; // Rayon dynamique
-    // Ajustement de la hauteur de ligne pour compenser la taille de la police
-    const line_height = size * 0.035; 
+    const size = canvas.width;
+    const radius = size / 2;
+    // Taille de la police augmentée pour le numéro
+    const font_size = size * 0.08; 
 
     ctx.clearRect(0, 0, size, size); 
     ctx.strokeStyle = '#fff';
@@ -64,16 +64,11 @@ function drawWheel() {
         ctx.textAlign = 'center'; 
         ctx.fillStyle = '#fff';
         
-        // Taille de police AUGMENTÉE pour garantir la lisibilité sur mobile
-        ctx.font = 'bold ' + (size * 0.030) + 'px Arial'; 
+        // Nouvelle police grande et centrée pour le numéro
+        ctx.font = 'bold ' + font_size + 'px Arial'; 
         
-        const lines = gages[i].text.split('\n');
-        let startY = 0 - (lines.length * line_height / 2) + (line_height / 2); 
-
-        for (let j = 0; j < lines.length; j++) {
-            // Utilisation d'un facteur 0.70 pour centrer le texte dans le segment
-            ctx.fillText(lines[j], radius * 0.70, startY + (j * line_height));
-        }
+        // Affiche le numéro du gage au centre du segment
+        ctx.fillText(gages[i].id, radius * 0.5, 0 + (font_size * 0.3)); // 50% du rayon
         
         ctx.restore();
     }
@@ -83,7 +78,7 @@ function spinWheel() {
     if (isSpinning) return;
     isSpinning = true;
     spinButton.disabled = true;
-    resultatDiv.textContent = "The wheel is spinning..."; 
+    resultatDiv.textContent = "The wheel is spinning...";
 
     const randomGageIndex = Math.floor(Math.random() * numGages);
     
@@ -104,7 +99,8 @@ function spinWheel() {
         spinButton.disabled = false;
         
         const winningGage = gages[randomGageIndex];
-        resultatDiv.innerHTML = `Bravo. It landed on you.<br>Your dare is: <strong>${winningGage.text.replace(/\n/g, ' ')}</strong> 😬`;
+        // Message adapté pour afficher le numéro et le texte long
+        resultatDiv.innerHTML = `Bravo. Le numéro ${winningGage.id} est sorti.<br>Ton gage est : <strong>${winningGage.text.replace(/\n/g, ' ')}</strong> 😬`;
 
         canvas.style.transition = 'none';
         canvas.style.transform = `rotate(-${targetAngleDegrees}deg)`; 
