@@ -19,7 +19,7 @@ const gages = [
     }, 
     { 
         id: 3, 
-        text: "Read 5 sentences without breathing\nto critique lack of 'air' (Leading)", 
+        text: "Read 5 sentences without breathing\nto highlight lack of padding (Leading)", 
         color: "#3A0CA3",
         rule: "Leading Readability: Inadequate vertical spacing (Leading) makes text difficult to track and reduces reading comfort."
     }, 
