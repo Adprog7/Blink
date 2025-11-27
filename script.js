@@ -31,9 +31,10 @@ const gages = [
     }, 
     { 
         id: 5, 
-        text: "Critique the use of stock imagery\non a brand website you know", 
-        color: "#4CC9F0",
-        rule: "Image Modernity/Cliché: Avoid overly generic or outdated stock photos; they weaken brand messaging and relevance."
+        text: "Sketch a wireframe in 1 minute\njustifying the negative space", 
+        color: "#3A0CA3",
+        rule: "Whitespace Importance: Negative space guides the eye, reduces clutter, and establishes clear visual hierarchy, vital for layout."
+    
     }, 
     { 
         id: 6, 
@@ -49,10 +50,9 @@ const gages = [
     }, 
     { 
         id: 8, 
-        text: "Sketch a wireframe in 1 minute\njustifying the negative space", 
-        color: "#3A0CA3",
-        rule: "Whitespace Importance: Negative space guides the eye, reduces clutter, and establishes clear visual hierarchy, vital for layout."
-    }, 
+        text: "Critique the use of stock imagery\non a brand website you know", 
+        color: "#4CC9F0",
+        rule: "Image Modernity/Cliché: Avoid overly generic or outdated stock photos; they weaken brand messaging and relevance."}, 
 ];
 // ---------------------------------------------------
 
