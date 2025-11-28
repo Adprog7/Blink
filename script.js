@@ -25,9 +25,9 @@ const gages = [
     }, 
     { 
         id: 4, 
-        text: "Explain the 3 WCAG Contrast Rules\nwhile holding a plank", 
+        text: "Explain the Color Contrast Rule simply, while holding the invisible chair (wall sit).", 
         color: "#4361EE",
-        rule: "WCAG Contrast: Low contrast between text and background fails accessibility standards (WCAG). Contrast must be high for legibility."
+        rule: "The Color Contrast Rule specifies the difference in brightness between text and its background. For essential readability and accessibility, you must use light text on a dark background, or vice-versa."
     }, 
     { 
         id: 5, 
@@ -44,15 +44,15 @@ const gages = [
     }, 
     { 
         id: 7, 
-        text: "Identify a Kerning error on an ad/site\nand propose a correction (30s)", 
+        text: "Explain why using red in finance is a mistake, speaking like an overly enthusiastic game show host (30s).", 
         color: "#7209B7",
-        rule: "Kerning Error: Kerning is the spacing between specific letters. Inconsistent spacing leads to visual gaps and an unprofessional look."
+        rule: "Color Psychology Clashes: Specific colors evoke certain feelings (red = danger/debt). Finance brands require colors (Blue/Green) that inspire Trust and Stability."
     }, 
     { 
         id: 8, 
-        text: "Critique the use of stock imagery\non a brand website you know", 
+        text: "Draw the same object (e.g., a heart) in three different styles (line, solid, 3D) and explain why consistency is vital (30s).", 
         color: "#4CC9F0",
-        rule: "Image Modernity/Cliché: Avoid overly generic or outdated stock photos; they weaken brand messaging and relevance."}, 
+        rule: "All icons and graphic elements must belong to the same approved Visual Style (e.g., all outline or all filled) to maintain a unified and professional design."}, 
 ];
 // ---------------------------------------------------
 
